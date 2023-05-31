@@ -83,6 +83,17 @@ class Rope : InventoryItem
     public Rope() : base(1f, 1.5f) { }
 }
 
-class Water : InventoryItem { }
-class Food : InventoryItem { }
-class Sword : InventoryItem { }
+class Water : InventoryItem
+{
+    public Water() : base(2f, 3f) { }
+}
+
+class Food : InventoryItem
+{
+    public Food() : base(1f, 0.5f) { }
+}
+
+class Sword : InventoryItem
+{
+    public Sword() : base(5f, 3f) { }
+}
