@@ -82,16 +82,11 @@ public class Pack
     {
         string packContents = $"Pack is currently at {_maxCount}/10 items, {_maxWeight}/30 weight, and {_maxVolume}/20)\n";
 
-        if (_items != null)
+        for (int i = 0; i < _currentCount; i++)
         {
-            for (int i = 0; i < _currentCount; i++)
-            {
-                if (_items[i] != null)
-                {
-                    packContents += $"{_items[i].Display()}\n";
-                }
-            }
+            packContents += $"{_items[i].Display()}\n";
         }
+        
         return packContents;
     }
 }
