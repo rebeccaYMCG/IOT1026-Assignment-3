@@ -23,34 +23,40 @@ static class PackTester
                 // int.TryParse should be preferred
                 // I am using this method to demonstrate exception handling
                 int choice = Convert.ToInt32(Console.ReadLine());
-                // Can use _ -> for a default case to possibly avoid exception handling
-                InventoryItem newItem = choice switch
+
+                if (choice >= 1 && choice <= 6)
                 {
-                    1 => new Arrow(),
-                    2 => new Bow(),
-                    3 => new Rope(),
-                    4 => new Water(),
-                    5 => new Food(),
-                    6 => new Sword(),
-                    _ => throw new NotImplementedException()
-                };
-                if (!pack.Add(newItem))
+                    // Can use _ -> for a default case to possibly avoid exception handling
+                    InventoryItem newItem = choice switch
+                    {
+                        1 => new Arrow(),
+                        2 => new Bow(),
+                        3 => new Rope(),
+                        4 => new Water(),
+                        5 => new Food(),
+                        6 => new Sword(),
+                        _ => throw new NotImplementedException()
+                    };
+                    if (!pack.Add(newItem))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Could not fit this item into the pack.");
+                    }
+                }
+                else if (choice == 7)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Could not fit this item into the pack.");
+                    Console.WriteLine("Venturing Forth!");
+                    addMoreItems = false;
+                }
+                else
+                {
+                    Console.WriteLine("That is an invalid selection.");
                 }
             }
             catch (FormatException)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("That is an invalid selection.");
-            }
-            // If the user enters an int that is not covered by our switch statement
-            // we break out of the loop (good design choice?)
-            catch (System.Runtime.CompilerServices.SwitchExpressionException)
-            {
-                Console.WriteLine("Venturing Forth!");
-                addMoreItems = false;
             }
             Console.ResetColor();
         } while (addMoreItems);

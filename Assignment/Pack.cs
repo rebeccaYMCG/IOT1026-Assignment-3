@@ -132,10 +132,6 @@ public class Arrow : InventoryItem
 {
     public Arrow() : base(0.05f, 0.1f) { }
 
-    public Arrow(float volume, float weight) : base(volume, weight)
-    {
-    }
-
     public override string Display()
     {
         return $" An arrow with weight {GetWeight()} and volume {GetVolume()}";
