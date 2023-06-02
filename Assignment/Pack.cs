@@ -82,14 +82,6 @@ public class Pack
     {
         string packContents = $"Pack is currently at {_currentCount}/{_maxCount} items, {_currentWeight}/{_maxWeight} weight, and {_currentVolume}/{_maxVolume} volume.";
 
-        for (int i = 0; i < _currentCount; i++)
-        {
-            if (_items[i] != null)
-            {
-                packContents += $"{_items[i]}";
-            }
-        }
-
         return packContents;
     }
 }
