@@ -52,10 +52,10 @@ static class PackTester
             }
             // If the user enters an int that is not covered by our switch statement
             // we break out of the loop (good design choice?)
-            catch (NotImplementedException)
+            catch (System.Runtime.CompilerServices.SwitchExpressionException)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid choice. Please select a valid option.");
+                Console.WriteLine("Venturing Forth!");
+                addMoreItems = false;
             }
             Console.ResetColor();
         } while (addMoreItems);
