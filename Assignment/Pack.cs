@@ -138,7 +138,7 @@ public class Arrow : InventoryItem
 
     public override string Display()
     {
-        return $"An arrow with weight {GetWeight()} and volume {GetVolume()}";
+        return $" An arrow with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -148,7 +148,7 @@ public class Bow : InventoryItem
 
     public override string Display()
     {
-        return $"An bow with weight {GetWeight()} and volume {GetVolume()}";
+        return $" An bow with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -158,7 +158,7 @@ public class Rope : InventoryItem
 
     public override string Display()
     {
-        return $"An rope with weight {GetWeight()} and volume {GetVolume()}";
+        return $" An rope with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -168,7 +168,7 @@ public class Water : InventoryItem
 
     public override string Display()
     {
-        return $"A flask of water with weight {GetWeight()} and volume {GetVolume()}";
+        return $" A flask of water with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -178,7 +178,7 @@ public class Food : InventoryItem
 
     public override string Display()
     {
-        return $"A bag of snacks with weight {GetWeight()} and volume {GetVolume()}";
+        return $" A bag of snacks with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -188,6 +188,6 @@ public class Sword : InventoryItem
 
     public override string Display()
     {
-        return $"A glimmering sword with weight {GetWeight()} and volume {GetVolume()}";
+        return $" A glimmering sword with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
