@@ -12,4 +12,6 @@
 </p>
 
 # IOT1026-Assignment-3
-Write a description of the project here and don't forget to update the badges.  
+In this program users have access to an inventory system. It allows users to add various items to their pack, such as, arrows, bows, rope, water, food, and swords. However, the pack has its limitations and can only hold a set amount of items, weight, and volume. 
+
+Users are prompted to add their preferred item, till their bag is full. The user can add items until either the bag is full or they choose to venture forward, at which point the program exits. 

@@ -83,7 +83,7 @@ This will allow you to interactively test your `Pack` and `InventoryItem` implem
 
 Submit a link to the GitHub repo containing your code and an image of the output when you use your `Pack` in the `PackTester` class. An example image is below.
 
-![Example output](output.png)
+![Example output](Output.3.png)
 
 ## Grading Rubric
 
