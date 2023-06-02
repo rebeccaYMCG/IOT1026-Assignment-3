@@ -39,11 +39,6 @@ static class PackTester
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Could not fit this item into the pack.");
                 }
-                if (choice == 7)
-                {
-                    Console.WriteLine("Venturing Forth!");
-                    addMoreItems = false;
-                }
             }
             catch (FormatException)
             {
