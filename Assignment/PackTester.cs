@@ -18,12 +18,8 @@ static class PackTester
             Console.WriteLine("6 - Sword");
             Console.WriteLine("7 - Gather your pack and venture forth");
 
-            try
+            if (int.TryParse(Console.ReadLine(), out int choice))
             {
-                // int.TryParse should be preferred
-                // I am using this method to demonstrate exception handling
-                int choice = Convert.ToInt32(Console.ReadLine());
-                // Can use _ -> for a default case to possibly avoid exception handling
                 InventoryItem newItem = choice switch
                 {
                     1 => new Arrow(),
@@ -40,14 +36,14 @@ static class PackTester
                     Console.WriteLine("Could not fit this item into the pack.");
                 }
             }
-            catch (FormatException)
+            else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("That is an invalid selection.");
             }
             // If the user enters an int that is not covered by our switch statement
             // we break out of the loop (good design choice?)
-            catch (System.Runtime.CompilerServices.SwitchExpressionException)
+            if (choice == 7)
             {
                 Console.WriteLine("Venturing Forth!");
                 addMoreItems = false;
