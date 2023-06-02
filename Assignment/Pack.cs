@@ -54,20 +54,28 @@ public class Pack
         // Do your logic to ensure the item can be added
         float weight = item.GetWeight();
         float volume = item.GetVolume();
-        if (volume <= _maxVolume)
+
+        if (_currentCount < _maxCount && _currentWeight + weight <= _maxWeight && _currentVolume + volume <= _maxVolume)
         {
+            _items[_currentCount++] = item;
+            _currentCount++;
             _currentWeight += weight;
             _currentVolume += volume;
-            _items[_currentCount++] = item;
             return true;
         }
         return false;
     }
 
-    // Implement this class
     public override string ToString()
     {
-        throw new NotImplementedException();
+        string packContents = $"Pack Contents (Max Count: {_maxCount}, Max Weight: {_maxWeight}, Max Volume: {_maxVolume})\n";
+
+        for (int i = 0; i < _currentCount; i++);
+        {
+            packContents += $"{_items[i].Display()}\n";
+        }
+
+        return packContents;
     }
 }
 
