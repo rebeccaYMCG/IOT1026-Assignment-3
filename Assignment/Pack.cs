@@ -86,7 +86,7 @@ public class Pack
         {
             if (_items[i] != null)
             {
-                packContents += $"{_items[i].Display()}";
+                packContents += $"{_items[i]}";
             }
         }
 
