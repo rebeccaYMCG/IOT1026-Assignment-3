@@ -80,7 +80,7 @@ public class Pack
     /// <returns>A string representing the pack and its contents.</returns>
     public override string ToString()
     {
-        string packContents = $"Pack Contents (Max Count: {_maxCount}, Max Weight: {_maxWeight}, Max Volume: {_maxVolume})\n";
+        string packContents = $"Pack is currently at {_maxCount}/10 items, {_maxWeight}/30 weight, and {_maxVolume}/20)\n";
 
         if (_items != null)
         {
