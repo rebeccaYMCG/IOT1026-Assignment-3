@@ -21,7 +21,12 @@ public class Pack
         // ...
     }
 
-    // not done yet
+    /// <summary>
+    /// Constructor for the Pack class.
+    /// </summary>
+    /// <param name="maxCount">The maximum count of items that the pack can hold.</param>
+    /// <param name="maxVolume">The maximum volume that the pack can hold.</param>
+    /// <param name="maxWeight">The maximum weight that the pack can hold.</param>
     public Pack(int maxCount, float maxVolume, float maxWeight)
     {
         _items = new InventoryItem[maxCount];
@@ -30,28 +35,31 @@ public class Pack
         _maxWeight = maxWeight;
     }
 
-    // getter
+    /// <summary>
+    /// Gets the maximum count of items that the pack can hold.
+    /// </summary>
+    /// <returns>The maximum count of items.</returns>
     public int GetMaxCount()
     {
         return _maxCount;
     }
 
+    /// <summary>
+    /// Gets the current volume of the pack.
+    /// </summary>
+    /// <returns>The current volume of the pack.</returns>
     public float GetVolume()
     {
         return _currentVolume;
     }
 
+    /// <summary>
+    /// Adds an inventory item to the pack.
+    /// </summary>
+    /// <param name="item">The inventory item to add.</param>
+    /// <returns>True if the item was added successfully, false otherwise.</returns>
     public bool Add(InventoryItem item)
     {
-        // In the `Add` method, check if adding the item would exceed the pack's 
-        // maximum count, weight, or volume. If it would not exceed these limits, 
-        // add the item to the pack and return `true`. Otherwise, return `false`.
-
-        // Does the current item cause _currentCount to be > _maxCount ... same for vol. and weight
-        // if the new item will exceed these parameters, return false
-        // else add it to the _items array and return true.
-
-        // Do your logic to ensure the item can be added
         float weight = item.GetWeight();
         float volume = item.GetVolume();
 
@@ -66,11 +74,15 @@ public class Pack
         return false;
     }
 
+    /// <summary>
+    /// Returns a string representation of the pack.
+    /// </summary>
+    /// <returns>A string representing the pack and its contents.</returns>
     public override string ToString()
     {
         string packContents = $"Pack Contents (Max Count: {_maxCount}, Max Weight: {_maxWeight}, Max Volume: {_maxVolume})\n";
 
-        for (int i = 0; i < _currentCount; i++);
+        for (int i = 0; i < _currentCount; i++)
         {
             packContents += $"{_items[i].Display()}\n";
         }
@@ -79,6 +91,9 @@ public class Pack
     }
 }
 
+/// <summary>
+/// Represents an inventory item with volume and weight properties.
+/// </summary>
 public abstract class InventoryItem
 {
     private readonly float _volume;
@@ -114,9 +129,13 @@ public class Arrow : InventoryItem
 {
     public Arrow() : base(0.05f, 0.1f) { }
 
+    public Arrow(float volume, float weight) : base(volume, weight)
+    {
+    }
+
     public override string Display()
     {
-        return $"An arrow with weight {GetWeight} and volume {GetVolume};
+        return $"An arrow with weight {GetWeight} and volume {GetVolume}";
     }
 }
 
@@ -126,7 +145,7 @@ public class Bow : InventoryItem
 
     public override string Display()
     {
-        return $"An bow with weight {GetWeight} and volume {GetVolume};
+        return $"An bow with weight {GetWeight} and volume {GetVolume}";
     }
 }
 
@@ -136,7 +155,7 @@ public class Rope : InventoryItem
 
     public override string Display()
     {
-        return $"An rope with weight {GetWeight} and volume {GetVolume};
+        return $"An rope with weight {GetWeight} and volume {GetVolume}";
     }
 }
 
@@ -146,7 +165,7 @@ public class Water : InventoryItem
 
     public override string Display()
     {
-        return $"A flask of water with weight {GetWeight} and volume {GetVolume};
+        return $"A flask of water with weight {GetWeight} and volume {GetVolume}";
     }
 }
 
@@ -156,7 +175,7 @@ public class Food : InventoryItem
 
     public override string Display()
     {
-        return $"A bag of snacks with weight {GetWeight} and volume {GetVolume};
+        return $"A bag of snacks with weight {GetWeight} and volume {GetVolume}";
     }
 }
 
@@ -166,6 +185,6 @@ public class Sword : InventoryItem
 
     public override string Display()
     {
-        return $"A glimmering sword with weight {GetWeight} and volume {GetVolume};
+        return $"A glimmering sword with weight {GetWeight} and volume {GetVolume}";
     }
 }
