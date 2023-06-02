@@ -84,7 +84,7 @@ public class Pack
 
         if (_items != null)
         {
-            for (int i = 0; i < _currentCount; i++)\
+            for (int i = 0; i < _currentCount; i++)
             {
                 if (_items[i] != null)
                 {
