@@ -8,6 +8,9 @@ public class Pack
     private readonly int _maxCount;
     private readonly float _maxVolume;
     private readonly float _maxWeight;
+    private int _currentCount; // Defaults to 0
+    private float _currentVolume;
+    private float _currentWeight;
 
     /// <summary>
     /// Default constructor for the class.
@@ -21,6 +24,7 @@ public class Pack
     // not done yet
     public Pack(int maxCount, float maxVolume, float maxWeight)
     {
+        _items = new InventoryItem[maxCount];
         _maxCount = maxCount;
         _maxVolume = maxVolume;
         _maxWeight = maxWeight;
@@ -32,9 +36,32 @@ public class Pack
         return _maxCount;
     }
 
+    public float GetVolume()
+    {
+        return _currentVolume;
+    }
+
     public bool Add(InventoryItem item)
     {
-        throw new NotImplementedException();
+        // In the `Add` method, check if adding the item would exceed the pack's 
+        // maximum count, weight, or volume. If it would not exceed these limits, 
+        // add the item to the pack and return `true`. Otherwise, return `false`.
+
+        // Does the current item cause _currentCount to be > _maxCount ... same for vol. and weight
+        // if the new item will exceed these parameters, return false
+        // else add it to the _items array and return true.
+
+        // Do your logic to ensure the item can be added
+        float weight = item.GetWeight();
+        float volume = item.GetVolume();
+        if (volume <= _maxVolume)
+        {
+            _currentWeight += weight;
+            _currentVolume += volume;
+            _items[_currentCount++] = item;
+            return true;
+        }
+        return false;
     }
 
     // Implement this class
@@ -44,16 +71,23 @@ public class Pack
     }
 }
 
-public class InventoryItem
+public abstract class InventoryItem
 {
     private readonly float _volume;
     private readonly float _weight;
 
-    public InventoryItem(float volume, float weight)
+    protected InventoryItem(float volume, float weight)
     {
+        if (volume <= 0f || weight <= 0f)
+        {
+            throw new ArgumentOutOfRangeException($"An item can't have {volume} volume or {weight} weight");
+        }
         _volume = volume;
         _weight = weight;
     }
+
+    // returns a string repersenting the quantities of the item (volume & weight of the item)
+    public abstract string Display();
 
     public float GetVolume()
     {
@@ -68,32 +102,62 @@ public class InventoryItem
 
 // Implement these classes - each inherits from InventoryItem
 // 1 line of code each - call base class constructor with appropriate arguments
-class Arrow : InventoryItem
+public class Arrow : InventoryItem
 {
     public Arrow() : base(0.05f, 0.1f) { }
+
+    public override string Display()
+    {
+        return $"An arrow with weight {GetWeight} and volume {GetVolume};
+    }
 }
 
-class Bow : InventoryItem
+public class Bow : InventoryItem
 {
     public Bow() : base(1f, 4f) { }
+
+    public override string Display()
+    {
+        return $"An bow with weight {GetWeight} and volume {GetVolume};
+    }
 }
 
-class Rope : InventoryItem
+public class Rope : InventoryItem
 {
     public Rope() : base(1f, 1.5f) { }
+
+    public override string Display()
+    {
+        return $"An rope with weight {GetWeight} and volume {GetVolume};
+    }
 }
 
-class Water : InventoryItem
+public class Water : InventoryItem
 {
     public Water() : base(2f, 3f) { }
+
+    public override string Display()
+    {
+        return $"A flask of water with weight {GetWeight} and volume {GetVolume};
+    }
 }
 
-class Food : InventoryItem
+public class Food : InventoryItem
 {
     public Food() : base(1f, 0.5f) { }
+
+    public override string Display()
+    {
+        return $"A bag of snacks with weight {GetWeight} and volume {GetVolume};
+    }
 }
 
-class Sword : InventoryItem
+public class Sword : InventoryItem
 {
     public Sword() : base(5f, 3f) { }
+
+    public override string Display()
+    {
+        return $"A glimmering sword with weight {GetWeight} and volume {GetVolume};
+    }
 }
