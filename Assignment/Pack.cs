@@ -29,10 +29,11 @@ public class Pack
     /// <param name="maxWeight">The maximum weight that the pack can hold.</param>
     public Pack(int maxCount, float maxVolume, float maxWeight)
     {
-        _items = new InventoryItem[maxCount];
         _maxCount = maxCount;
         _maxVolume = maxVolume;
         _maxWeight = maxWeight;
+        _currentCount = 0;
+        _items = new InventoryItem[maxCount];
     }
 
     /// <summary>
@@ -86,7 +87,7 @@ public class Pack
         {
             packContents += $"{_items[i].Display()}\n";
         }
-        
+
         return packContents;
     }
 }
