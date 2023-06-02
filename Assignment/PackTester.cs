@@ -39,6 +39,11 @@ static class PackTester
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Could not fit this item into the pack.");
                 }
+                if (choice == 7)
+                {
+                    Console.WriteLine("Venturing Forth!");
+                    addMoreItems = false;
+                }
             }
             catch (FormatException)
             {
@@ -47,10 +52,10 @@ static class PackTester
             }
             // If the user enters an int that is not covered by our switch statement
             // we break out of the loop (good design choice?)
-            catch (System.Runtime.CompilerServices.SwitchExpressionException)
+            catch (NotImplementedException)
             {
-                Console.WriteLine("Venturing Forth!");
-                addMoreItems = false;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Invalid choice. Please select a valid option.");
             }
             Console.ResetColor();
         } while (addMoreItems);
