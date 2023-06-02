@@ -32,8 +32,7 @@ public class Pack
         _maxCount = maxCount;
         _maxVolume = maxVolume;
         _maxWeight = maxWeight;
-        _currentCount = 0;
-        _items = new InventoryItem[maxCount];
+        _items = new InventoryItem[_maxCount];
     }
 
     /// <summary>
@@ -81,7 +80,7 @@ public class Pack
     /// <returns>A string representing the pack and its contents.</returns>
     public override string ToString()
     {
-        string packContents = $"Pack is currently at {_maxCount}/10 items, {_maxWeight}/30 weight, and {_maxVolume}/20)\n";
+        string packContents = $"{_currentCount}/{_maxCount} items, {_currentWeight}/{_maxWeight} weight, and {_currentVolume}/{_maxVolume} volume.\n";
 
         for (int i = 0; i < _currentCount; i++)
         {
@@ -130,13 +129,9 @@ public class Arrow : InventoryItem
 {
     public Arrow() : base(0.05f, 0.1f) { }
 
-    public Arrow(float volume, float weight) : base(volume, weight)
-    {
-    }
-
     public override string Display()
     {
-        return $"An arrow with weight {GetWeight} and volume {GetVolume}";
+        return $"An arrow with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -146,7 +141,7 @@ public class Bow : InventoryItem
 
     public override string Display()
     {
-        return $"An bow with weight {GetWeight} and volume {GetVolume}";
+        return $"An bow with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -156,7 +151,7 @@ public class Rope : InventoryItem
 
     public override string Display()
     {
-        return $"An rope with weight {GetWeight} and volume {GetVolume}";
+        return $"An rope with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -166,7 +161,7 @@ public class Water : InventoryItem
 
     public override string Display()
     {
-        return $"A flask of water with weight {GetWeight} and volume {GetVolume}";
+        return $"A flask of water with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -176,7 +171,7 @@ public class Food : InventoryItem
 
     public override string Display()
     {
-        return $"A bag of snacks with weight {GetWeight} and volume {GetVolume}";
+        return $"A bag of snacks with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
 
@@ -186,6 +181,6 @@ public class Sword : InventoryItem
 
     public override string Display()
     {
-        return $"A glimmering sword with weight {GetWeight} and volume {GetVolume}";
+        return $"A glimmering sword with weight {GetWeight()} and volume {GetVolume()}";
     }
 }
