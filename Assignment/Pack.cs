@@ -80,13 +80,13 @@ public class Pack
     /// <returns>A string representing the pack and its contents.</returns>
     public override string ToString()
     {
-        string packContents = $"{_currentCount}/{_maxCount} items, {_currentWeight}/{_maxWeight} weight, and {_currentVolume}/{_maxVolume} volume.\n";
+        string packContents = $"Pack is currently at {_currentCount}/{_maxCount} items, {_currentWeight}/{_maxWeight} weight, and {_currentVolume}/{_maxVolume} volume.";
 
-        if (_items != null)
+        for (int i = 0; i < _currentCount; i++)
         {
-            for (int i = 0; i < _currentCount; i++)
+            if (_items[i] != null)
             {
-                packContents += $"{_items[i].Display()}\n";
+                packContents += $"{_items[i].Display()}";
             }
         }
 
@@ -131,6 +131,10 @@ public abstract class InventoryItem
 public class Arrow : InventoryItem
 {
     public Arrow() : base(0.05f, 0.1f) { }
+
+    public Arrow(float volume, float weight) : base(volume, weight)
+    {
+    }
 
     public override string Display()
     {

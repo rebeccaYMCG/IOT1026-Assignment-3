@@ -20,7 +20,7 @@ namespace AssignmentTest
             Assert.AreEqual(pack.GetMaxCount(), PackMaxItems);
         }
 
-        /// <summary>
+/// <summary>
         /// Tests the behavior of the Pack class when volume constraint is exceeded.
         /// </summary>
         [TestMethod]
@@ -34,7 +34,7 @@ namespace AssignmentTest
             Assert.AreEqual(pack.Add(new Bow()), true);
         }
 
-        /// <summary>
+/// <summary>
         /// Tests the behavior of the Pack class when weight constraint is exceeded.
         /// </summary>
         [TestMethod]
@@ -48,7 +48,7 @@ namespace AssignmentTest
             Assert.IsFalse(pack.Add(new Sword()));
         }
 
-        /// <summary>
+/// <summary>
         /// Tests the behavior of the Pack class when count constraint is exceeded.
         /// </summary>
         [TestMethod]
@@ -64,7 +64,7 @@ namespace AssignmentTest
             Assert.IsFalse(pack.Add(new Arrow()));
         }
 
-        /// <summary>
+/// <summary>
         /// Tests the behavior of the Pack class when volume and weight constraints are both zero.
         /// </summary>
         [TestMethod]
@@ -78,7 +78,7 @@ namespace AssignmentTest
             Assert.IsFalse(pack.Add(new Food()));
         }
 
-        /// <summary>
+/// <summary>
         /// Tests the behavior of the Pack class when adding an item with negative weight and volume.
         /// Expects an ArgumentOutOfRangeException to be thrown.
         /// </summary>
