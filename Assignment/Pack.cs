@@ -122,7 +122,9 @@ public abstract class InventoryItem
 // 1 line of code each - call base class constructor with appropriate arguments
 public class Arrow : InventoryItem
 {
-    public Arrow() : base(0.05f, 0.1f) { }
+    public Arrow(float volume, float weight) : base(volume, weight) { }
+
+    public Arrow(float negativeWeight) : base(0.05f, 0.1f) { }
 
     public override string Display()
     {
